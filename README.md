@@ -1,31 +1,14 @@
 # Mapper
 
-## Przygotowanie środowiska
-### Aby wygenerować parser w języku Python z pliku gramatyki Mapper.g4, użyj jednej z poniższych metod:
-- Jeśli masz alias 'antlr4':
-```bash
-$ antlr4 -Dlanguage=Python3 -visitor Mapper.g4
-```
+**Mapper** is a custom programming language developed by a me and my friend, focused on procedural generation and modeling of 2D tile-based maps for games and simulations.
 
-### Jeśli nie masz aliasu, użyj pełnej ścieżki:
-```bash
-$ java -jar C:\antlr\antlr-4.13.2-complete.jar -Dlanguage=Python3 -visitor Mapper.g4
-```
+The language offers standard programming constructs such as variables, conditional logic, iterative control flow (`for`, `while`), and user-defined functions, alongside domain-specific instructions for map drawing and manipulation. It features a simple type system (`number`, `bool`), supports nested scopes and recursion, and provides immediate visual feedback by rendering the generated map during execution.
 
-### Uruchamianie skryptu Python - wybór jednej z opcji:
-1. Instalacja wymaganych pakietów
-```bash
-$ pip install requirements.txt
-```
-2. Aby uruchomić interpreter dla pliku example.map, wykonaj:
-```bash
-$ py MapperInterpreter.py example.map
-```
-lub
-```bash
-$ python MapperInterpreter.py example.map
-```
+Mapper is implemented as an interpreted language using ANTLR, with a dedicated execution pipeline and visualization layer that displays the resulting map and trims it to the final water-bounded area.
 
+**Developed as part of:**  
+*Compilation Theory and Compilers* course  
+AGH University of Science and Technology
 ## Przykład użycia
 
 ### Rysowanie obiektów
@@ -138,4 +121,26 @@ road village_forest end
 
 ![Rezultat](./assets/readme/roads.png)
 
+
+## Instalacja
+
+1. **Zainstaluj ANTLR 4.13.2**
+   - Pobierz z [oficjalnej strony ANTLR](https://www.antlr.org/download.html)
+   - Skonfiguruj alias lub zapamiętaj ścieżkę do pliku `.jar`
+
+2. **Wygeneruj parser**
+   ```bash
+   antlr4 -Dlanguage=Python3 -visitor Mapper.g4
+   ```
+
+3. **Zainstaluj zależności Python**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Uruchomienie
+
+```bash
+python MapperInterpreter.py example.map
+```
 
